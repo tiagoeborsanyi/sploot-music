@@ -1,0 +1,23 @@
+.header {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  
+
+  &__svg {
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 0;
+    margin-right: 1.3rem;
+  }
+
+  &__title {
+    font-weight: 500;
+  }
+
+  &__action {
+    font-weight: 500;
+    margin-left: auto;
+  }
+}
