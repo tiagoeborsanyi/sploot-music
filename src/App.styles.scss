@@ -1,0 +1,63 @@
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    height: 850px;
+    width: 410px;
+    border: 13px solid rgba(0, 0, 0, .78);
+    border-radius: 45px;
+    padding: 7px 18px;
+    position: relative;
+
+    &::before {
+      content: "";
+      height: 30px;
+      width: 55%;
+      background-color: rgba(0, 0, 0, .78);
+      border-radius: 0 0 100px 100px;
+      position: absolute;
+      left: 50%;
+      top: 0px;
+      transform: translateX(-50%);
+    }
+
+    &::after {
+      content: "";
+      height: 7px;
+      width: 45%;
+      background-color: rgba(0, 0, 0, .78);
+      border-radius: 100px;
+      position: absolute;
+      left: 50%;
+      bottom: 10px;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.bar-info {
+  display: flex;
+  justify-content: space-between;
+
+  &__hour {
+
+  }
+
+  &__status {
+    &--list {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      list-style: none;
+    }
+
+    &--item {
+      &:not(:last-child) {
+        margin: 0 3px;
+      }
+    }
+  }
+}
