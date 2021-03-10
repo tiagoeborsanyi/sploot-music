@@ -78,21 +78,32 @@
   }
   
   .actived {
-    animation: slideActived .3s;
+    animation: slideActived .4s ease-in-out;
+    transition: all .5s;
   }
 
   .actived-main {
     animation: slideActivedMain .7s ease-out;
   }
+
+  .actived-top {
+    animation: slideTop .3s ease-in;
+  }
 }
 
 @keyframes slideActived {
-  from {
+  0% {
     transform: translateX(0);
   }
 
-  to {
+  50% {
     transform: translateX(-70px) scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0) scale(1);
+    opacity: 1;
   }
 }
 
@@ -103,9 +114,21 @@
 
   50% {
     transform: translate(180px, -70px) scale(0);
+    opacity: 0;
   }
 
   100% {
     transform: translate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideTop {
+  from {
+    opacity: .5;
+  }
+
+  to {
+    opacity: 1;
   }
 }
