@@ -13,6 +13,7 @@
     align-items: flex-end;
     border-radius: 1.5rem;
     padding: 1rem 2rem 1rem 1rem;
+    margin-right: 1rem;
     color: #fff;
     background-position: center;
     background-repeat: no-repeat;
@@ -48,7 +49,7 @@
   &__column {
     height: 100%;
     flex: 1;
-    margin-left: 1.99rem;
+    margin-left: 1rem;
   }
 
   &__list {
@@ -82,7 +83,7 @@
       transition: all .4s;
       
       &:hover {
-        transform: translateY(-3px) scale(.99);
+        transform: translateY(-2px) scale(.99);
         box-shadow: 2px 5px 5px -2px rgba($color: #000000, $alpha: .57);
       }
     }
