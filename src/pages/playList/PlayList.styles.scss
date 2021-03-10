@@ -1,0 +1,111 @@
+.cards {
+  height: 11rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3rem;
+
+  &__main {
+    height: 100%;
+    flex: 0 0 75%;
+    display: flex;
+    align-items: flex-end;
+    border-radius: 1.5rem;
+    padding: 1rem 2rem 1rem 1rem;
+    color: #fff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    // transition: all 1s;
+
+    & > span {
+      font-weight: 700;
+      font-size: 1.6rem;
+    }
+
+    & > svg {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.1rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  }
+
+  &__column {
+    height: 100%;
+    flex: 1;
+    margin-left: 1.99rem;
+  }
+
+  &__list {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__item {
+    height: 25%;
+    width: 100%;
+  }
+
+  .card {
+    height: 100%;
+    width: 100%;
+    background-color: salmon;
+    border-radius: .7rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    // transition: all 1s;
+
+    &__arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    & > svg  {
+      color: #fff;
+      font-weight: 400;
+      font-size: 2.5rem;
+    }
+  }
+  
+  .actived {
+    animation: slideActived .3s;
+  }
+
+  .actived-main {
+    animation: slideActivedMain .7s ease-out;
+  }
+}
+
+@keyframes slideActived {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-70px) scale(0);
+  }
+}
+
+@keyframes slideActivedMain {
+  0% {
+    transform: translate(0);
+  }
+
+  50% {
+    transform: translate(180px, -70px) scale(0);
+  }
+
+  100% {
+    transform: translate(0) scale(1);
+  }
+}
