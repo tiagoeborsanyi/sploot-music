@@ -6,6 +6,7 @@ import Header from '../../components/header/Header';
 import './PlayList.styles.scss';
 
 const PlayList = () => {
+  const [saved, setSaved] = useState(false)
   const [clicked, setClicked] = useState(false)
   const [data, setData] = useState([
     {
@@ -35,6 +36,14 @@ const PlayList = () => {
     const newData = data.filter((_, index) => id !== index)
     setData([data[id], ...newData]);
   }, [clicked, data]);
+
+  const handleSaved = (id) => {
+    const copyData = data.filter((_, index) => index === id);
+    copyData[0].saved = !copyData[0].saved;
+    data[0] = copyData[0];
+    setData(data);
+    setSaved(!saved);
+  }
   
 
   return (
@@ -51,7 +60,12 @@ const PlayList = () => {
             backgroundImage: `url(${data[0].path})`
           }}
         >
-          <BsBookmarkFill />
+          <button
+            className={`cards__button`}
+            onClick={() => handleSaved(0)}
+          >
+            <BsBookmarkFill className={`${(data[0].saved) && 'saved-card'}`} />
+          </button>
           <span>{data[0].title}</span>
         </div>
         <div className='cards__column'>
