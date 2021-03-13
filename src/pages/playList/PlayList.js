@@ -3,11 +3,14 @@ import { RiArrowRightSLine } from "react-icons/ri";
 import { BsBookmarkFill } from 'react-icons/bs';
 
 import Header from '../../components/header/Header';
+import ListMusic from '../../components/listMusic/ListMusic'
+import {playlistData} from './playlist-data'
 import './PlayList.styles.scss';
 
 const PlayList = () => {
   const [saved, setSaved] = useState(false)
   const [clicked, setClicked] = useState(false)
+  const [itemPlaylistClicked, setItemPlaylistClicked] = useState(0)
   const [data, setData] = useState([
     {
       id: 1,
@@ -43,6 +46,10 @@ const PlayList = () => {
     data[0] = copyData[0];
     setData(data);
     setSaved(!saved);
+  }
+
+  const handleClickedItem = (id) => {
+    setItemPlaylistClicked(id)
   }
   
 
@@ -102,41 +109,12 @@ const PlayList = () => {
         </div>
       </section>
 
-      <section className='playlist'>
-        <div className='playlist__left'>
-          <h3 className='playlist__title'>next to play</h3>
-          <div className='playlist__items'>
-            <div className='playlist__item'>
-              <div 
-                className='playlist__image'
-                style={{
-                  backgroundImage: `url(https://c.wallhere.com/photos/21/85/leaf_maple_tree_stump_dry-1019902.jpg!d)`
-                }}
-              />
-              <div className='playlist__text'>
-                <h4>Motivation</h4>
-                <span>29min - Female voice</span>
-              </div>
-            </div>
-
-            <div className='playlist__item'>
-              <div 
-                className='playlist__image'
-                style={{
-                  backgroundImage: `url(https://c.wallhere.com/photos/21/85/leaf_maple_tree_stump_dry-1019902.jpg!d)`
-                }}
-              />
-              <div className='playlist__text'>
-                <h4>Motivation</h4>
-                <span>29min - Female voice</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='playlist__right'>
-          <span>direita</span>
-        </div>
-      </section>
+      <ListMusic 
+        title='next to play'
+        data={playlistData}
+        clicked={handleClickedItem}
+        itemClicked={itemPlaylistClicked}
+      />
     </>
   )
 }
