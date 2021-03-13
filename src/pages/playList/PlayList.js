@@ -102,6 +102,41 @@ const PlayList = () => {
         </div>
       </section>
 
+      <section className='playlist'>
+        <div className='playlist__left'>
+          <h3 className='playlist__title'>next to play</h3>
+          <div className='playlist__items'>
+            <div className='playlist__item'>
+              <div 
+                className='playlist__image'
+                style={{
+                  backgroundImage: `url(https://c.wallhere.com/photos/21/85/leaf_maple_tree_stump_dry-1019902.jpg!d)`
+                }}
+              />
+              <div className='playlist__text'>
+                <h4>Motivation</h4>
+                <span>29min - Female voice</span>
+              </div>
+            </div>
+
+            <div className='playlist__item'>
+              <div 
+                className='playlist__image'
+                style={{
+                  backgroundImage: `url(https://c.wallhere.com/photos/21/85/leaf_maple_tree_stump_dry-1019902.jpg!d)`
+                }}
+              />
+              <div className='playlist__text'>
+                <h4>Motivation</h4>
+                <span>29min - Female voice</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='playlist__right'>
+          <span>direita</span>
+        </div>
+      </section>
     </>
   )
 }
