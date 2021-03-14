@@ -11,6 +11,7 @@ const PlayList = () => {
   const [saved, setSaved] = useState(false)
   const [clicked, setClicked] = useState(false)
   const [itemPlaylistClicked, setItemPlaylistClicked] = useState(0)
+  const [clickedExpand, setClickedExpand] = useState(false)
   const [data, setData] = useState([
     {
       id: 1,
@@ -51,6 +52,11 @@ const PlayList = () => {
   const handleClickedItem = (id) => {
     setItemPlaylistClicked(id)
   }
+
+  const handleExpand = () => {
+    console.log('expand')
+    setClickedExpand(!clickedExpand)
+  }
   
 
   return (
@@ -60,7 +66,15 @@ const PlayList = () => {
         action='text'
       />
 
-      <section className='cards'>
+      <section 
+        className='cards'
+        style={clickedExpand ? {
+          display: 'none'    
+        } :
+        {
+          display: 'flex'
+        }}
+      >
         <div 
           className={`cards__main ${clicked && 'actived-main'}`}
           style={{
@@ -114,6 +128,8 @@ const PlayList = () => {
         data={playlistData}
         clicked={handleClickedItem}
         itemClicked={itemPlaylistClicked}
+        expandClicked={handleExpand}
+        clickedExpand={clickedExpand}
       />
     </>
   )

@@ -1,0 +1,99 @@
+.expanded {
+  height: auto;
+  width: 100%;
+  text-align: center;
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 3rem .1rem 0;
+    line-height: 1.4;
+  }
+
+  &__info {
+    font-size: .9rem;
+    color: rgba($color: #000000, $alpha: .5);
+    font-weight: 600;
+    letter-spacing: .1rem;
+  }
+
+  &__options {
+    margin: 2.5rem 0;
+
+    & > svg {
+      margin: 0 1rem;
+      font-size: 1.3rem;
+      color: rgba($color: #000000, $alpha: .85);
+      transition: all .7s;
+    }
+  }
+
+  &__player {
+    height: 41%;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__player--range {
+    height: 4px;
+    width: 90%;
+    border-radius: 100px;
+    background-color: #979797;
+    margin-bottom: 1.8rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      height: 4px;
+      width: 70%;
+      background-color: #4da1e0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 100px;
+    }
+
+    &::after {
+      content: '';
+      height: 17px;
+      width: 17px;
+      border-radius: 50%;
+      background-color: #4da1e0;
+      border: 2px solid #fff;
+      position: absolute;
+      top: 50%;
+      left: 70%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__controls {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+     & > svg {
+      color: rgba($color: #000000, $alpha: .85);
+      margin: 0 1rem;
+     }
+
+     &--play {
+       font-size: 3rem;
+     }
+
+     &--settings {
+       position: absolute;
+       left: 1rem;
+       bottom: 3rem;
+
+       & > svg {
+         font-size: 1.4rem;
+         transform: rotate(90deg);
+       }
+     }
+  }
+}

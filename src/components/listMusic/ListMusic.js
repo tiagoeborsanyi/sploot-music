@@ -3,15 +3,47 @@ import {
   BsPlayFill,
   BsSkipStartFill,
   BsSkipEndFill,
-  BsFullscreen
+  BsFullscreen,
+  BsArrowRepeat,
+  BsFillHeartFill,
+  BsShuffle,
+  BsFullscreenExit
  } from "react-icons/bs";
+ import { VscSettings } from 'react-icons/vsc'
 
 import './ListMusic.styles.scss'
 import './player.styles.scss'
+import './expanded.styles.scss'
 
-const ListMusic = ({ title, data, clicked, itemClicked }) => (
-  <section className='playlist'>
-    <div className='playlist__left'>
+const ListMusic = ({ 
+  title, 
+  data, 
+  clicked, 
+  itemClicked,
+  expandClicked,
+  clickedExpand
+}) => (
+  <section 
+    className='playlist'
+    style={clickedExpand ? 
+    {
+      height: '90%',
+      flexDirection: 'column'
+    } : 
+    {
+      
+    }}
+  >
+    <div 
+      className='playlist__left'
+      style={!clickedExpand ? 
+      {
+        display: 'block'
+      } : 
+      {
+        display: 'none'
+      }}
+    >
       <h3 className='playlist__title'>{title}</h3>
       <div className='playlist__items'>
         {
@@ -36,24 +68,77 @@ const ListMusic = ({ title, data, clicked, itemClicked }) => (
         }
       </div>
     </div>
-    <div className='playlist__right'>
+    <div 
+      className='playlist__right' 
+      style={clickedExpand ?
+      {
+        alignItems: 'center',
+        margin: 0
+      } : {}}
+    >
       <div 
-        className='playlist__image right_image'
+        className={`${!clickedExpand ? 'playlist__image right_image' : 'playlist__image expand__image'}`}
         style={{
           backgroundImage: `url(${data[itemClicked].pathImg ? data[itemClicked].pathImg : data[0].pathImg})`
         }}
       >
-        <span>{data[itemClicked].id ? data[itemClicked].id : data[0].id}</span>
+        {
+          !clickedExpand ?
+          <span>{data[itemClicked].id ? data[itemClicked].id : data[0].id}</span> :
+          null
+        }
       </div>
-      <div className='player'>
+      <div 
+        className='player'
+        style={!clickedExpand ? 
+          {
+            display: 'flex'
+          } : 
+          {
+            display: 'none'
+          }}
+      >
         <div className='player__range' />
         <BsSkipStartFill />
         <BsPlayFill />
         <BsSkipEndFill />
       </div>
       <div className='expand'>
-        <BsFullscreen />
+        {
+          clickedExpand ?
+          <BsFullscreenExit onClick={expandClicked} /> :
+          <BsFullscreen 
+            onClick={expandClicked}
+          />
+        }
+        
       </div>
+
+      {
+        clickedExpand ?
+        (
+          <div className='expanded'>
+            <h2 className='expanded__title'>{data[itemClicked].title}</h2>
+            <span className='expanded__info'>{data[itemClicked].info}</span>
+            <div className='expanded__options'>
+              <BsShuffle />
+              <BsFillHeartFill />
+              <BsArrowRepeat />
+            </div>
+            <div className='expanded__player'>
+              <div className='expanded__player--range' />
+              <div className='expanded__controls'>
+                <BsSkipStartFill />
+                <BsPlayFill className='expanded__controls--play' />
+                <BsSkipEndFill />
+              </div>
+              <div className='expanded__controls--settings'>
+                <VscSettings />
+              </div>
+            </div>
+          </div>
+        ) : null
+      }
     </div>
   </section>
 )
