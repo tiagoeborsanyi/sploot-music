@@ -28,6 +28,17 @@
     }
   }
 
+  &__time {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+
+    & > span {
+      font-size: .7rem;
+      color: rgba($color: #000000, $alpha: .5);
+    }
+  }
+
   &__player {
     height: 41%;
     width: 100%;
@@ -70,15 +81,32 @@
       left: 70%;
       transform: translateY(-50%);
     }
+
+    &:hover {
+      cursor: pointer;
+      background-color: #747272;
+
+      &::before,
+      &::after {
+        background-color: #1984d6;
+      }
+    }
   }
 
   &__controls {
     font-size: 2rem;
     display: flex;
     align-items: center;
+    z-index: 100;
+
      & > svg {
       color: rgba($color: #000000, $alpha: .85);
       margin: 0 1rem;
+
+      &:hover {
+        cursor: pointer;
+        color: rgba($color: #000000, $alpha: .65);
+      }
      }
 
      &--play {
@@ -88,11 +116,16 @@
      &--settings {
        position: absolute;
        left: 1rem;
-       bottom: 3rem;
+       bottom: 2.8rem;
 
        & > svg {
          font-size: 1.4rem;
          transform: rotate(90deg);
+
+         &:hover {
+           cursor: pointer;
+           color: rgba($color: #000000, $alpha: .65);
+         }
        }
      }
   }

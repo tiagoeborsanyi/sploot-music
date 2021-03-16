@@ -62,8 +62,9 @@ const PlayList = () => {
   return (
     <>
       <Header 
-        title='your playlist'
-        action='text'
+        title={`${clickedExpand ? 'NOW PLAYING' : 'your playlist'}`}
+        action={`${clickedExpand ? 'icon' : 'NEXT'}`}
+        expandClicked={handleExpand}
       />
 
       <section 

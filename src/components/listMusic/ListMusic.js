@@ -59,7 +59,7 @@ const ListMusic = ({
                   backgroundImage: `url(${item.pathImg})`
                 }}
               ><span>{item.id}</span></div>
-              <div className='playlist__text'>
+              <div className={`playlist__text ${itemClicked === index && 'selected-item'}`}>
                 <h4>{item.title}</h4>
                 <span>{item.info}</span>
               </div>
@@ -126,6 +126,10 @@ const ListMusic = ({
               <BsArrowRepeat />
             </div>
             <div className='expanded__player'>
+              <div className='expanded__time'>
+                <span>1:25</span>
+                <span>4:25</span>
+              </div>
               <div className='expanded__player--range' />
               <div className='expanded__controls'>
                 <BsSkipStartFill />

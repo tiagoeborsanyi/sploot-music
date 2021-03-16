@@ -9,7 +9,12 @@
     font-weight: 400;
     font-size: 1.8rem;
     line-height: 0;
-    margin-right: 1.3rem;
+    margin-right: 4.8rem;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .6;
+    }
   }
 
   &__title {

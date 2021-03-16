@@ -6,9 +6,9 @@ import {
 
 import './Header.styles.scss';
 
-const Header = ({ title, action }) => (
+const Header = ({ title, action, expandClicked }) => (
   <div className='header'>
-    <RiArrowLeftSLine className='header__svg' />
+    {action !== 'icon' ? <div style={{width: '0px', marginRight: '0rem'}} /> : <RiArrowLeftSLine className='header__svg' onClick={expandClicked} />}
     <h3 className='header__title'>{title}</h3>
     <h3 className='header__action'>{action === 'icon' ? <RiMore2Fill /> : 'next' }</h3>
   </div>
